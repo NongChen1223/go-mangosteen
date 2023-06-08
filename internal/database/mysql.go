@@ -3,11 +3,12 @@ package database
 import (
 	"database/sql"
 	"fmt"
+	_ "github.com/go-sql-driver/mysql"
 	"log"
 )
 
 const (
-	mysqlHost     = "mysql-for-go-mangosteen"
+	mysqlHost     = "172.18.0.2"
 	mysqlPort     = 3306
 	mysqlUser     = "mangosteen"
 	mysqlPassword = "123456"

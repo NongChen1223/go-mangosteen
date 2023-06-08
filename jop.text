@@ -8,5 +8,5 @@ docker run //跑一个容器
  -e MYSQL_PASSWORD=123456  //指定密码
  -e MYSQL_ROOT_PASSWORD=123456 //指定root密码
  -v mysql-go-mangosteen-data:/var/lib/mysql //指定数据卷 -v数据卷
- -d mysql:8 --character-set-server=uft8mb4 //指定mysql版本：8 以及字符集
+ -d mysql:8 --character-set-server=utf8mb4 //指定mysql版本：8 以及字符集
  --collation-server=utf8mb4_unicode_ci
