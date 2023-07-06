@@ -6,7 +6,7 @@ docker run //跑一个容器
  -e MYSQL_DATABASE=mangosteen_dev //指定数据库名 -e是环境变量
  -e MYSQL_USER=mangosteen //指定用户名
  -e MYSQL_PASSWORD=123456  //指定密码
- -p 3307:3306 //指定端口映射
+ -p 3307:3306 //指定端口映射 localhost
  -e MYSQL_ROOT_PASSWORD=123456 //指定root密码
  -v mysql-go-mangosteen-data:/var/lib/mysql //指定数据卷 -v数据卷
  -d mysql:8 --character-set-server=utf8mb4 //指定mysql版本：8 以及字符集
@@ -16,3 +16,13 @@ docker run //跑一个容器
 
 
  docker run  -d --network=network1 --name mysql-for-go-mangosteen -e MYSQL_DATABASE=mangosteen_dev -e MYSQL_USER=mangosteen  -e MYSQL_PASSWORD=123456  -p 3307:3306 -e MYSQL_ROOT_PASSWORD=123456 -v mysql-go-mangosteen-data:/var/lib/mysql -d mysql:8 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+
+
+ //docker 重启虚拟机后数据会丢失吗
+
+ 答：不会 因为数据存放在数据卷中，数据卷是一个独立于容器的存在，因此容器删除后，数据卷不会被自动删除。可以使用--volumes-from标记来将一个或多个数据卷容器挂载到正在运行的容器中。
+
+ //怎么删除多余的数据卷
+ 1.开启常用容器 containers
+ 2.cmd终端输入 docker system prune   docker volume prune
+ 提醒你是否删除没有被使用的 虚拟机 NetWork 镜像 缓存

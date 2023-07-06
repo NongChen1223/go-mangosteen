@@ -11,6 +11,7 @@ import (
 */
 func RunServer() {
 	database.MysqlConnect()
+	database.MysqlCreateTable()
 	defer database.MysqlClose()
 	r := router.New()
 	/*
