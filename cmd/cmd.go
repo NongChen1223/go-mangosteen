@@ -3,6 +3,7 @@ package cmd
 import (
 	"log"
 	"mangosteen/internal/database"
+	"mangosteen/internal/models"
 	"mangosteen/internal/router"
 )
 
@@ -10,8 +11,9 @@ import (
 在go中 外部包的函数名首字母大写表示可以被外部调用
 */
 func RunServer() {
-	database.MysqlConnect()
-	defer database.MysqlClose()
+	database.GormConnect()
+	models.CreateUserTest()
+	//defer database.GormClose()
 	r := router.New()
 	/*
 		监听0.0.0.0可以监听所有的网络接口

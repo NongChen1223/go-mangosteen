@@ -26,3 +26,5 @@ docker run //跑一个容器
  1.开启常用容器 containers
  2.cmd终端输入 docker system prune   docker volume prune
  提醒你是否删除没有被使用的 虚拟机 NetWork 镜像 缓存
+
+ //go中在同一声明的package中，不能声明相同的常量、变量、函数名
