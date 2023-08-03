@@ -3,6 +3,7 @@ package cmd
 import (
 	"log"
 	"mangosteen/internal/router"
+	jwt "mangosteen/internal/services"
 )
 
 /*
@@ -12,6 +13,7 @@ func RunServer() {
 	//database.GormConnect()
 	//models.CreateUserTest()
 	//defer database.GormClose()
+	jwt.CareteJwt()
 	r := router.New()
 	/*
 		监听0.0.0.0可以监听所有的网络接口

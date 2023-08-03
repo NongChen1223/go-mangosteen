@@ -11,7 +11,8 @@ type MyService struct {
 	jwt.StandardClaims
 }
 
-func careteJwt() {
+func CareteJwt() {
+	mySigningKey := []byte("fuckyou")
 	c := MyService{
 		Username: "NongChen",
 		StandardClaims: jwt.StandardClaims{
@@ -21,5 +22,10 @@ func careteJwt() {
 		},
 	}
 	t := jwt.NewWithClaims(jwt.SigningMethodHS256, c) //生成token
-	fmt.Println(t)
+	str, err := t.SignedString(mySigningKey)
+	if err != nil {
+		fmt.Println("%s", err)
+	}
+	fmt.Println("加密字符串", str)
+
 }
